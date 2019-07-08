@@ -6,13 +6,14 @@ num_passed = 0
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('input_path', help='The path of the Petri Net file.', type=str)
-    parser.add_argument('output_path', help='The path of the event log.', type=str)
+    parser.add_argument('input_path', help='The path of the input.', type=str)
+    parser.add_argument('output_path', help='The path of the output.', type=str)
+    parser.add_argument('-s', '--seed', default=0, help='Seed', type=int)
 
     args = parser.parse_args()
 
     ph = PathHandler(args.input_path, args.output_path)
-    splitter = Splitter(0.8)
+    splitter = Splitter(0.8, args.seed)
 
     input_paths = ph.get_input_file_paths()
     training_paths = ph.get_training_set_paths()

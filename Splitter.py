@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Splitter:
-    def __init__(self, percent_training, seed=0):
+    def __init__(self, percent_training, seed):
         self.seed = seed
         self.percent_training = percent_training
 
